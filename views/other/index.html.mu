@@ -1,1 +1,1 @@
-with completely different functions
+this is the index partial for the 'other' controller
