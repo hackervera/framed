@@ -1,28 +1,22 @@
 Controller = require '../controller'
 Person = require '../models/person'
 controller = new Controller 'site'
-layout = {}
 
 controller.index = ->
-    this.partial 'index', layout, (body)->
-        layout.view = body
-        controller.render layout
+    this.render {}
 
 controller.foo = ->
-    layout.name = 'tyler'
-    layout.age = 27
-    layout.badnumber = 30
-    this.partial 'foo', layout, (body)->
-        layout.view = body
-        controller.render layout
+    dude = 
+        name: 'tyler'
+        age: 27
+        badnumber: 30
+    this.render dude
 
 controller.people = ->
     Person.find {age: {$gt:10} }, (err, docs)->
-        console.log docs
-        controller.partial 'people', layout, (body)->
-            layout.view = body
-            layout.docs = docs
-            controller.render layout
+        layout = 
+            docs: docs
+        controller.render layout
 
 
 
