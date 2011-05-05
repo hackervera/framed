@@ -2,5 +2,6 @@
 My name is tyler. this is an example app on my web framework.<br>
 It uses the mustache templating language, because mustache is uber awesome
 <br><br>
-I have an obsession with <b>&lt;br&gt;</b> tags
+I have an obsession with <b>&lt;br&gt;</b> tags<br>
+This site was built with my nodejs MVC framework called <a href='https://github.com/tjgillies/framed'>framed</a>
 
