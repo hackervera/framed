@@ -1,5 +1,6 @@
 express = require 'express'
 app = express.createServer()
+app.use(express.cookieParser());
 controllers = {}
 app.use(express.static(__dirname + '/public'));
 

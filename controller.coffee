@@ -6,11 +6,13 @@ class Controller
         self = this
         app.get "/#{@name}/:function", (req, res)->
             self.res = res
+            self.req = req
             self.function = req.params.function
             self[req.params.function]()
         app.get "/#{@name}", (req, res)->
             self.function = 'index'
             self.res = res
+            self.req = req
             self.index()
     compile: (file, thing, cb)->
         self = this
