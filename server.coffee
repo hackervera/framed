@@ -11,7 +11,6 @@ fs.readdir './controllers', (err, files)->
     files.forEach (file)->
         controller = require "./controllers/#{file}"
         controller.createServer app
-        controllers[controller.name] = controller
     console.log controllers
     routes = require './config/routes'
     for path, route of routes

@@ -37,7 +37,6 @@ controller.food = ->
         controller.render data
 
 controller.signin = ->
-    
     data =
         params: controller.req.params
     if controller.req.cookies.name?
@@ -46,4 +45,12 @@ controller.signin = ->
     console.log data.params
     controller.render data
 
+controller.getid = (id)->
+    Person.find {name: id}, (err, docs)->
+        data =
+            id: id
+            docs: docs
+            amount: docs.length
+        controller.render data
+        
 module.exports = controller
