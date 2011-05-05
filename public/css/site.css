@@ -1,0 +1,30 @@
+.center {
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    align: center;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    overflow:auto;
+}
+.title {
+    text-align: center;
+}
+.col {
+    float: left;
+}
+.nav {
+    width: 400px;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    border-width: 1px;
+    font-size: large;
+    text-align:center;
+    word-spacing: 15px;
+    
+}
+a {
+    text-decoration: none;
+}
