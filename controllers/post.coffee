@@ -3,6 +3,8 @@ Person = require '../models/person'
 # The second argument makes a POST handler
 controller = new Controller 'post', 'post'
 controller.index = ->
+    this.render {}
+controller.people = ->
     layout =
         body: this.req.body
     inst = new Person()

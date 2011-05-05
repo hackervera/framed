@@ -4,8 +4,9 @@ Food = require '../models/food'
 controller = new Controller 'site'
 
 controller.index = ->
+    console.log this.req.method
     this.render {}
-
+    
 controller.foo = ->
     dude = 
         name: 'tyler'
@@ -14,10 +15,20 @@ controller.foo = ->
     this.render dude
 
 controller.people = ->
-    Person.find {age: {$gt:10} }, (err, docs)->
-        layout = 
-            docs: docs
-        controller.render layout
+    if this.req.method == "GET"
+        Person.find {age: {$gt:10} }, (err, docs)->
+            layout = 
+                docs: docs
+            controller.render layout
+    if this.req.method == "POST"
+        layout =
+            body: this.req.body
+        inst = new Person()
+        inst.name = this.req.body.name
+        inst.age = this.req.body.age
+        inst.save()
+        console.log layout.body
+        this.render layout
 
 controller.food = ->
     Food.find {}, (err, docs)->

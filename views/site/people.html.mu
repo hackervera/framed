@@ -12,4 +12,4 @@ This is an example of using mustache templating and <a href='http://www.mongoose
 Add person:<br>
 name <input type='text' id='name'><br>
 age<input type='text' id='age'><br>
-<button onClick='$.post("/post",{name: $("#name").val(), age: $("#age").val()}, function(){ window.location.reload()})'>Add</button>
+<button onClick='$.post("/site/people",{name: $("#name").val(), age: $("#age").val()}, function(){ window.location.reload()})'>Add</button>
