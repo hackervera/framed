@@ -1,5 +1,4 @@
 Controller = require '../controller'
-mu = require 'mu'
 controller = new Controller 'site'
 layout = {}
 controller.index = ->
@@ -9,6 +8,7 @@ controller.index = ->
 controller.foo = ->
     layout.name = 'tyler'
     layout.age = 27
+    layout.badnumber = 30
     this.partial 'foo', layout, (body)->
         layout.view = body
         controller.render layout
