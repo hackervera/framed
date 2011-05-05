@@ -1,4 +1,5 @@
 Controller = require '../controller'
+Person = require '../models/person'
 controller = new Controller 'site'
 layout = {}
 controller.index = ->
@@ -12,6 +13,13 @@ controller.foo = ->
     this.partial 'foo', layout, (body)->
         layout.view = body
         controller.render layout
+controller.people = ->
+    Person.find {}, (err, docs)->
+        console.log docs
+        controller.partial 'people', layout, (body)->
+            layout.view = body
+            layout.docs = docs
+            controller.render layout
 controller.github = ->
     request = require 'request'
     request {uri: 'http://www.google.com'}, (err, res, resbody)->

@@ -5,3 +5,4 @@ person = new scheme
     name: String
     age: Number
 model = mongoose.model('person', person)
+module.exports = model
