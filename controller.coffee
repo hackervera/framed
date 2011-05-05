@@ -1,15 +1,17 @@
 mu = require 'mu'
 mu.root = './views'
 class Controller
-    constructor: (@name)->
+    constructor: (@name, @method)->
     createServer: (app)->
+        if not @method?
+            @method = "get"
         self = this
-        app.get "/#{@name}/:function", (req, res)->
+        app[@method] "/#{@name}/:function", (req, res)->
             self.res = res
             self.req = req
             self.function = req.params.function
             self[req.params.function]()
-        app.get "/#{@name}", (req, res)->
+        app[@method] "/#{@name}", (req, res)->
             self.function = 'index'
             self.res = res
             self.req = req
