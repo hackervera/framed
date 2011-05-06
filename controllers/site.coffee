@@ -83,7 +83,8 @@ controller.realtime = ->
         os = require 'os'
         client = this
         setInterval (->
-            client.now.rUptime os.uptime()), 1000
+            client.now.rUptime os.uptime(), JSON.stringify os.cpus()
+        ), 1000
     this.render()
     
 module.exports = controller
