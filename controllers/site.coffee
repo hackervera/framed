@@ -2,7 +2,7 @@ Controller = require '../controller'
 Person = require '../models/person'
 Food = require '../models/food'
 controller = new Controller 'site'
-
+###
 controller.before = ->
     if controller.req.cookies.digest
         Person.findOne {digest: controller.req.cookies.digest}, (err, doc)->
@@ -12,7 +12,7 @@ controller.before = ->
                 controller.res.redirect '/site/signin' unless controller.function == 'signin'
     else
         this.res.redirect '/site/signin' unless this.function == 'signin'
-
+###
 controller.index = ->
     this.render()
     

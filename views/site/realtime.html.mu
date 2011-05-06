@@ -1,5 +1,5 @@
 {{{now}}}
-<div id='uptime'></div>
+<div id='uptime'>Loading data...</div>
 <script type='text/coffeescript'>
 now.ready = ->
     now.uptime()
